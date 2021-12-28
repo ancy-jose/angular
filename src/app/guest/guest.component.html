@@ -1,0 +1,50 @@
+<p>guest works!</p>
+<ng-container *ngIf="room.length !=0">
+    <div class="container">
+    <div class="card-table">
+        <div class="card-order">
+            <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Guest Id</th>
+                    <th>Room num</th>
+                    <th> Booking Id</th>
+                    <th>Phone number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rooms of room;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{rooms.booking_Id}}</td>
+                    <td>{{rooms.hotel_Id}}</td>    
+                    <td>{{rooms.room_num}}</td>
+                    <td>{{rooms.booking_date}}</td>
+                    <td>
+                        <button (click)="removeBooking(rooms)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </td>            
+                </tr>
+                
+                
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <button [routerLink]="['/home/']" class="btn btn-success">Go to Home</button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="room.length==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">MY BOOKINGS</h5>
+        </div>
+         <div class="center">
+             <img src="" alt="">
+            <h4>No Bookings</h4>
+            <button [routerLink]="['/hotels/']" class="btn btn-primary">Book Now</button>
+         </div>    
+    </div>
+    </ng-container>
+

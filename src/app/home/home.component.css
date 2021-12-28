@@ -1,0 +1,23 @@
+.container-fluid{
+  background-image: url(hotel.jpg);
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  max-width: 1363px;
+}
+.form-control{
+    position: absolute;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 25px;
+  }
+  h1{
+    margin-top: 300px;
+  }
+  .search-icon{
+    position: absolute;
+    z-index: 10;
+    right: 20%;
+    top:70%;
+    color: black;
+  }

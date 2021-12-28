@@ -1,0 +1,59 @@
+<style>
+    table{
+        margin: 70px;
+    }
+    tr{
+        height: 70px;
+    }
+</style>
+<h5 class="card-title">Hotel Id:{{hotel_id}}</h5>
+
+    <hr>
+       <!-- <div class="table-responsive-lg ">
+        <table class="table "> 
+         <tr>   
+            <th>
+            Room Type
+            </th>
+            <th>
+            Room View
+            </th>
+            <th>
+            Price
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        <tr *ngFor="let room of roomList">
+            <td>{{room.room_type}}</td>
+            <td>{{room.room_view}}</td>
+            <td>{{room.price}}</td>
+            <td> <a [routerLink]="['/booking/', room.room_num]" class="btn btn-outline-success" >Book Now</a></td>
+        </tr>
+    </table>
+</div> -->
+<div class="row">
+    <div class="col-sm-12" *ngFor="let room of roomList">
+        <div *ngIf="hotel_id==room.hotel_Id">
+        <div class="card m-4">
+            <div class="card-body">
+                <h5 class="card-title">Room Type:{{room.room_type}}</h5>
+                <p class="card-text">Room View:{{room.room_view}}</p>
+                <p class="card-text"> Room Price:{{room.price}}</p>
+                <a [routerLink]="['/booking/', room.room_num]" class="btn btn-outline-success">Book Now</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        <!-- <div class="card m-4">
+                <a [routerLink]="['/booking/', rooms.Num]" class="btn btn-danger">Book Now</a>
+            </div>
+        </div> -->
+   

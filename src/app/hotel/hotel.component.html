@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+<div class="col-sm-4 form-group">
+    <input type="text" class="form-control"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search hotels">
+    <span class="fas fa-search search-icon"></span>
+</div>
+<div class="col-sm-4">
+    <label>Sort by &nbsp;</label>
+    <select [(ngModel)]='SortbyParam'>
+        <option value="location">City</option>
+        <option value="rating">Rating</option>
+    </select>
+<button type="button" (click)="onSortDirection()">
+    <i *ngIf="sortDirection==='asc'" class="fas fa-sort-alpha-down"></i>
+    <i *ngIf="sortDirection==='desc'" class="fas fa-sort-alpha-up"></i>
+</button>
+</div>
+</div>
+</div>
+
+<div class="card">
+    <div class="card-img-wrapper">
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let hotel of hotelList | filter:searchKey:'hotel_name'|sort:[SortbyParam,sortDirection]">
+                <div class="card m-4">
+                    <div class="card-body">
+                        <img class="card-img-top" src="hotel.jpg">
+                        <h5 class="card-title">{{hotel.hotel_name}}</h5>
+                        <p class="card-text">{{hotel.location}}</p>
+                        <p class="card-text">Rating : {{hotel.rating}}</p>
+                        <a [routerLink]="['/room/', hotel.hotel_Id]" class="btn btn-primary">Know More</a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+
+    </div> 
+</div>
